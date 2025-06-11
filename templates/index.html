@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CyberVerify - Check the security status of domains, IP addresses, and file hashes.">
+    <meta name="keywords" content="cybersecurity, domain check, IP address check, file hash check, security status">
+    <title>CyberVerify</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>CyberVerify</h1>
+        
+        <p><strong>Check the security status of a domain, IP address, or file hash.</strong></p>   
+        
+        <form id="domainForm">
+            <div class="form-group">
+                <label for="checkType" class="mb-3">Check Type:</label>
+                <select id="checkType" required>
+                    <option value="domain">Domain</option>
+                    <option value="ip">IP Address</option>
+                    <option value="hash">File Hash</option>
+                </select>
+            </div>
+            <input type="text" id="inputValue" placeholder="Enter domain (e.g., example.com)" required>
+            <button type="submit">Check Security</button>
+        </form>
+       
+        <div id="result" class="result" style="display: none;">
+            <h2>Security Overview</h2>
+            <p id="status"></p>
+            <div id="resultsDetails"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
